@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
+    <link rel="shortcut icon" href="">
+
     <script>
 
     var weekRestSec = 60;
@@ -24,7 +26,8 @@
 
     </script>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="jquery.min.js"></script>-->
     <script type="text/javascript" src="annyang/dist/annyang.min.js"></script>
     <script type="text/javascript" src="SpeechKITT/dist/speechkitt.min.js"></script>
     <script type="text/javascript" src="jarvis.js"></script>
@@ -72,19 +75,13 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <h1>Jarvis</h1>
-                <textarea id="twikiTextarea" width='400' height='200'></textarea>
+                <div id="note">[Memo will show up here]</div><p></p>
+                <iframe width="340" height="380" id="iframe" frameBorder="1"></iframe>
                 <p></p>
-                <iframe width="400" height="400" id="iframe" frameBorder="1"></iframe>
+                <textarea id="twikiTextarea" width='340' height='200'></textarea>
                 <p></p>
-                <div id="weather" style="width:400px;">
-                <a class="weatherwidget-io" href="https://forecast7.com/en/32d72n117d16/san-diego/?unit=us" data-label_1="SAN DIEGO" data-label_2="WEATHER" data-theme="original" >SAN DIEGO WEATHER</a>
-                <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","weatherwidget-io-js");
-                </script>
-                </div>
-                <p></p>
-                <p></p>
-                <p></p>
+                <div id="message_wrapper"><div id="message"></div></div>
+
                 <!--<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>-->
             </div>
         </div>
@@ -94,8 +91,10 @@
     <!-- /#wrapper -->
 
     <!-- Bootstrap core JavaScript -->
-    <!--    <script src="vendor/jquery/jquery.min.js"></script>-->
-    <!--    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+    <!--
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    -->
 
     <!-- Menu Toggle Script -->
     <script>

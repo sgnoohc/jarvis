@@ -36,7 +36,7 @@ if action == "take":
     lines = open(fname, "r").readlines()
 
     fhin = open(fname, "w")
-    fhin.write("-----------------------------------------------\n")
+    fhin.write("---------------------------------------\n")
     fhin.write("Date: %s\n"%str(datetime.datetime.now().strftime("%x")))
     fhin.write("Time: %s\n"%str(datetime.datetime.now().strftime("%X")))
     #fhin.write("Location: %s %s\n"%(inp["latitude"], inp["longitude"])

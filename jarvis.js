@@ -18,6 +18,7 @@ $(function() {
             'show monitor': function() {show_monitor();},
             'show better monitor': function() {show_better_monitor();},
             'show notes': function() {show_notes();},
+            'show weather': function() {show_weather();},
             'clear notes': function() {clear_notes();},
             'show diss': function() {show_dis();},
             'open netflix': function() {open_netflix();},
@@ -42,7 +43,7 @@ $(function() {
 
         // Render KITT's interface
         SpeechKITT.vroom();
-        annyang.start();
+        annyang.start({autoRestart: true, continuous: false});
         notify();
     }
 });
@@ -60,7 +61,7 @@ var tab_classical;
 function go_to_website(website)
 {
     notify();
-    newwindow = window.open('https://www.'+website);
+    newwindow = window.open('http://www.'+website);
 }
 
 function shut_down()
@@ -97,13 +98,13 @@ function define_wordorphrase(wordorphrase)
     notify();
     if (tab_wordorphrase)
         tab_wordorphrase.close();
-    tab_wordorphrase = window.open('https://www.google.com/search?q=define+'+wordorphrase, 'dictionary');
+    tab_wordorphrase = window.open('http://www.google.com/search?q=define+'+wordorphrase, 'dictionary');
 }
 
 function google_stuff(stuff)
 {
     notify();
-    newwindow = window.open('https://www.google.com/search?q='+stuff);
+    newwindow = window.open('http://www.google.com/search?q='+stuff);
 }
 
 function open_gmail()
@@ -111,7 +112,7 @@ function open_gmail()
     notify();
     if (tab_gmail)
         tab_gmail.close();
-    tab_gmail = window.open('https://www.gmail.com', 'gmail');
+    tab_gmail = window.open('http://www.gmail.com', 'gmail');
 }
 
 function open_npr()
@@ -119,7 +120,7 @@ function open_npr()
     notify();
     if (tab_npr)
         tab_npr.close();
-    tab_npr = window.open('https://www.npr.org', 'npr');
+    tab_npr = window.open('http://www.npr.org', 'npr');
 }
 
 function open_nytimes()
@@ -127,7 +128,7 @@ function open_nytimes()
     notify();
     if (tab_nytimes)
         tab_nytimes.close();
-    tab_nytimes = window.open('https://www.nytimes.com', 'nytimes');
+    tab_nytimes = window.open('http://www.nytimes.com', 'nytimes');
 }
 
 function open_psych()
@@ -135,7 +136,7 @@ function open_psych()
     notify();
     if (tab_psych)
         tab_psych.close();
-    tab_psych = window.open('https://www.amazon.com/Lassie-Jerky/dp/B00BMKI4W8/ref=sr_1_7?s=instant-video&ie=UTF8&qid=1516178242&sr=1-7&keywords=psych', 'psych');
+    tab_psych = window.open('http://www.amazon.com/Lassie-Jerky/dp/B00BMKI4W8/ref=sr_1_7?s=instant-video&ie=UTF8&qid=1516178242&sr=1-7&keywords=psych', 'psych');
 }
 
 function open_netflix()
@@ -143,7 +144,7 @@ function open_netflix()
     notify();
     if (tab_netflix)
         tab_netflix.close();
-    tab_netflix = window.open('https://www.netflix.com','Netflix');
+    tab_netflix = window.open('http://www.netflix.com','Netflix');
 }
 
 function youtube_pororo_dinosaur()
@@ -151,7 +152,7 @@ function youtube_pororo_dinosaur()
     notify();
     if (tab_pororo_dinosaur)
         tab_pororo_dinosaur.close();
-    tab_pororo_dinosaur = window.open('https://www.youtube.com/embed/cCoPsbwwEMo?autoplay=1','Pororo dinosaur');
+    tab_pororo_dinosaur = window.open('http://www.youtube.com/embed/cCoPsbwwEMo?autoplay=1','Pororo dinosaur');
 }
 
 function youtube_pororo()
@@ -159,32 +160,13 @@ function youtube_pororo()
     notify();
     if (tab_pororo)
         tab_pororo.close();
-    tab_pororo = window.open('https://www.youtube.com/results?search_query=%EB%BD%80%EB%A1%9C%EB%A1%9C','Pororo');
+    tab_pororo = window.open('http://www.youtube.com/results?search_query=%EB%BD%80%EB%A1%9C%EB%A1%9C','Pororo');
 }
 
 function show_notes()
 {
     notify();
-    $('#iframe').attr('src', "http://uaf-8.t2.ucsd.edu/~phchang/ai/note.txt");
-
-    notify();
-    var formObj = {};
-    formObj["data"] = "clear";
-    formObj["action"] = "show";
-    console.log(formObj);
-    $.ajax({
-            url: "./note.py",
-            type: "POST",
-            data: formObj,
-            success: function(data) {
-                    displayMessage("<span style='color:green'>"+data+"</span>")
-                    console.log(data);
-                },
-            error: function(data) {
-                    displayMessage("<span style='color:red'>Error:</span> "+data["responseText"])
-                    console.log(data);
-                },
-       });
+    $('#iframe').attr('src', "./note.txt");
 }
 
 function show_dis()
@@ -203,6 +185,12 @@ function show_monitor()
 {
     notify();
     $('#iframe').attr('src', "http://uaf-8.t2.ucsd.edu/~namin/monitoring/overview.html#");
+}
+
+function show_weather()
+{
+    notify();
+    $('#iframe').attr('src', "weather.html");
 }
 
 function play_classical()
@@ -256,7 +244,7 @@ function clear_notes()
 function take_note(note)
 {
     notify();
-    $('#note p').text(note);
+    $('#note').text(note);
     var clipText = $("#twikiTextarea").val();
     var formObj = {};
     //coords = getCurrentPosition();
@@ -278,4 +266,6 @@ function take_note(note)
                     console.log(data);
                 },
        });
+    document.getElementById("twikiTextarea").value = "";
+    show_notes();
 }

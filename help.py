@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-f = open("note.js")
+f = open("jarvis.js")
 lines = f.readlines()
 inblock = False
 o = open("help.txt", "w")
