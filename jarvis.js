@@ -85,7 +85,8 @@ function help()
                     displayMessage("<span style='color:red'>Error:</span> ")
                 },
        });
-    $('#iframe').attr('src', "http://uaf-8.t2.ucsd.edu/~phchang/ai/help.txt");
+    //$('#iframe').attr('src', "https://uaf-8.t2.ucsd.edu/~phchang/jarvis/help.txt");
+    $('#iframe').attr('src', "./help.txt");
 }
 
 function close_tab()

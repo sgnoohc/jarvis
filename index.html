@@ -10,24 +10,15 @@
 
     <title>Jarvis</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-
     <link rel="shortcut icon" href="">
 
     <script>
-
     var weekRestSec = 60;
     var recognizeSound = "sounds/notification.wav";
     var alarmSound = "sounds/alarmdrum.wav";
-
     </script>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!--<script type="text/javascript" src="jquery.min.js"></script>-->
     <script type="text/javascript" src="annyang/dist/annyang.min.js"></script>
     <script type="text/javascript" src="SpeechKITT/dist/speechkitt.min.js"></script>
     <script type="text/javascript" src="jarvis.js"></script>
@@ -36,73 +27,13 @@
 
 <body>
 
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <h1>Jarvis</h1>
-                <div id="note">[Memo will show up here]</div><p></p>
-                <iframe width="340" height="380" id="iframe" frameBorder="1"></iframe>
-                <p></p>
-                <textarea id="twikiTextarea" width='340' height='200'></textarea>
-                <p></p>
-                <div id="message_wrapper"><div id="message"></div></div>
-
-                <!--<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>-->
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- Bootstrap core JavaScript -->
-    <!--
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    -->
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    <h1>Jarvis</h1>
+    <div id="note">[Memo will show up here]</div><p></p>
+    <iframe id="iframe" height="320px" width="380" frameBorder="1"></iframe>
+    <p></p>
+    <textarea id="twikiTextarea" width='340' height='200'></textarea>
+    <p></p>
+    <div id="message_wrapper"><div id="message"></div></div>
 
 </body>
 
