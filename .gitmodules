@@ -1,0 +1,6 @@
+[submodule "SpeechKITT"]
+	path = SpeechKITT
+	url = git@github.com:TalAter/SpeechKITT.git
+[submodule "annyang"]
+	path = annyang
+	url = git@github.com:TalAter/annyang.git
